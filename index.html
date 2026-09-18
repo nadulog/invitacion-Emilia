@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Invitación a los XV de Emilia — 21 de noviembre de 2026">
+  <title>XV Emilia</title>
+  <link rel="preload" as="image" href="assets/emilia-portada.jpeg">
+  <link rel="preload" as="image" href="assets/intro-emilia.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked">
+  <div class="opening" id="opening" role="dialog" aria-label="Abrir invitación">
+    <img class="opening__art" src="assets/intro-emilia.png" alt="Emilia, Mis XV">
+    <div class="opening__image-actions">
+      <button class="opening__hotspot opening__hotspot--music" id="openInvitation" type="button"><span class="sr-only">Entrar con música</span></button>
+      <button class="opening__hotspot opening__hotspot--silent" id="openInvitationSilent" type="button"><span class="sr-only">Entrar sin música</span></button>
+    </div>
+  </div>
+
+  <button class="sound" id="soundToggle" type="button" aria-label="Activar música" aria-pressed="false">
+    <span class="sound__icon" aria-hidden="true">♪</span>
+  </button>
+  <audio id="invitationAudio" src="assets/musica-emilia.mp3" preload="metadata" loop></audio>
+
+  <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
+
+  <main id="invitation">
+    <section class="piece cover reveal" aria-label="Portada de los quince años de Emilia">
+      <img class="cover__photo" src="assets/emilia-portada.jpeg" alt="Emilia en un paisaje natural" width="1068" height="1600">
+      <div class="cover__veil" aria-hidden="true"></div>
+      <div class="cover__copy">
+        <p>Mis XV</p>
+        <h1 class="emilia-signature">Emilia</h1>
+      </div>
+    </section>
+
+    <div class="cover-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 240" preserveAspectRatio="none">
+        <path d="M0,58 C410,210 1030,210 1440,58 L1440,240 L0,240 Z"></path>
+      </svg>
+    </div>
+
+    <section class="piece piece--countdown reveal" aria-label="Cuenta regresiva para la fiesta">
+      <img src="assets/cuenta-regresiva-fondo.png" alt="" width="864" height="1920">
+      <div class="countdown-wrap">
+        <p>Cada vez falta menos</p>
+        <div class="countdown" id="countdown" aria-live="polite">
+          <div><strong id="days">00</strong><span>Días</span></div>
+          <i aria-hidden="true">✦</i>
+          <div><strong id="hours">00</strong><span>Horas</span></div>
+          <i aria-hidden="true">✦</i>
+          <div><strong id="minutes">00</strong><span>Minutos</span></div>
+          <i aria-hidden="true">✦</i>
+          <div><strong id="seconds">00</strong><span>Segundos</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="piece piece--date reveal" id="dateReveal" aria-label="Fecha y hora">
+      <img src="assets/fecha.png" alt="Sábado 21 de noviembre de 2026 a las 21 horas" width="864" height="1920">
+      <button class="hotspot hotspot--calendar" id="addCalendar" type="button" aria-label="Agregar la fiesta al calendario"></button>
+      <canvas class="reveal-canvas" id="revealCanvas" aria-label="Pasá el dedo para descubrir la fecha"></canvas>
+      <div class="magic-trail" id="magicTrail" aria-hidden="true"></div>
+      <div class="reveal-guide" id="revealGuide" aria-hidden="true">
+        <strong>HAY UNA FECHA POR DESCUBRIR</strong>
+        <span>Pasá tu dedo sobre la pantalla</span>
+        <div class="finger-demo"><b>☝</b><i></i></div>
+      </div>
+    </section>
+
+    <section class="piece piece--location reveal" aria-label="Cómo llegar">
+      <img src="assets/ubicacion.png" alt="Salón Los Morrillos, San Juan 965 Norte, Santa Lucía" width="864" height="1920">
+      <button class="hotspot hotspot--location" type="button" data-open-modal="locationModal" aria-label="Ver cómo llegar"></button>
+    </section>
+
+    <section class="memory-photo memory-photo--portrait reveal" aria-label="Retrato de Emilia">
+      <img src="assets/emilia-intermedio-2.jpeg" alt="Emilia sonriendo entre los árboles" width="1068" height="1600" loading="lazy">
+    </section>
+
+    <section class="piece reveal" aria-label="Código de vestimenta estrictamente formal">
+      <img src="assets/dress-code.png" alt="Dress code: estrictamente formal" width="864" height="1536">
+    </section>
+
+    <section class="memory-photo memory-photo--portrait reveal" aria-label="Retrato de Emilia">
+      <img src="assets/emilia-intermedio-1.jpeg" alt="Emilia en un paisaje de montaña" width="1068" height="1600" loading="lazy">
+    </section>
+
+    <section class="piece piece--bloomkeep reveal" aria-label="BloomKeep">
+      <img src="assets/bloomkeep.png" alt="BloomKeep, la red social privada de mis XV" width="960" height="1706">
+      <a class="hotspot hotspot--bloomkeep" href="https://app.bloomkeep.site/emilia-15" target="_blank" rel="noopener noreferrer" aria-label="Ingresar a BloomKeep"></a>
+    </section>
+
+    <section class="piece piece--music reveal" aria-label="Música">
+      <img src="assets/musica.png" alt="Que esta noche también suene a vos" width="960" height="1706">
+      <a class="hotspot hotspot--music" href="https://open.spotify.com/playlist/0j8czaaEao4wSdzjwHRjSf?si=8kzVNAu-SPSz9pdbMUPLEA&amp;utm_source=whatsapp&amp;pt=285adbcc772d6062417662e0ef91c7a6&amp;pi=CnYG8MT5QK-6l" target="_blank" rel="noopener noreferrer" aria-label="Abrir playlist en Spotify"></a>
+    </section>
+
+    <section class="memory-photo memory-photo--closeup reveal" aria-label="Retrato de Emilia">
+      <img src="assets/emilia-intermedio-3.jpeg" alt="Primer plano de Emilia sonriendo" width="1600" height="1068" loading="lazy">
+    </section>
+
+    <section class="piece piece--gifts reveal" aria-label="Regalos">
+      <img src="assets/regalos.png" alt="Información para regalos" width="864" height="1920">
+      <div class="gift-sparkles" id="giftSparkles" aria-hidden="true"></div>
+      <button class="hotspot hotspot--gifts" type="button" data-open-modal="giftModal" aria-label="Ver datos para regalos"></button>
+    </section>
+
+    <section class="piece piece--rsvp reveal" aria-label="Confirmación de asistencia">
+      <img src="assets/rsvp.png" alt="¿Venís? Quiero compartir esta noche con vos" width="864" height="1536">
+      <a class="hotspot hotspot--rsvp" id="boton-confirmar" href="https://bloomdate-rsvp.netlify.app/r/cumple-xv-emilia" target="_blank" rel="noopener noreferrer" aria-label="Confirmar asistencia"></a>
+    </section>
+
+    <section class="closing reveal" aria-label="Cierre de la invitación">
+      <img class="closing__photo" src="assets/emilia-cierre-bn.jpeg" alt="Silueta de Emilia al atardecer" width="1600" height="1068" loading="lazy">
+      <div class="closing__shade" aria-hidden="true"></div>
+      <div class="closing__copy">
+        <p>Te espero</p>
+        <h2 class="emilia-signature">Emilia</h2>
+        <span aria-hidden="true">✦</span>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p class="footer-love">Hecho con amor <span aria-label="corazón">♥</span> por BloomDate</p>
+      <nav class="footer-links" aria-label="Contacto de BloomDate">
+        <a href="https://wa.me/541140436324" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/whatsapp/e9e7e2" alt="WhatsApp"></a>
+        <a href="https://www.instagram.com/bloomdate.invitaciones/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/instagram/e9e7e2" alt="Instagram"></a>
+        <a href="https://bloomdate-site.netlify.app/" target="_blank" rel="noopener noreferrer"><img src="https://api.iconify.design/lucide:globe-2.svg?color=%23e9e7e2" alt="Sitio web"></a>
+      </nav>
+    </footer>
+  </main>
+
+  <div class="modal" id="locationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="locationTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--location">
+      <button class="modal__close" type="button" data-close-modal aria-label="Cerrar">×</button>
+      <p class="modal__eyebrow">CÓMO LLEGAR</p>
+      <h2 id="locationTitle">Salón Los Morrillos</h2>
+      <span class="location-modal__star" aria-hidden="true">✦</span>
+      <p>San Juan 965 Norte<br>Santa Lucía</p>
+      <a class="location-modal__button" href="https://maps.app.goo.gl/knhqQsHEtGojJEwZ8?g_st=iw" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+    </div>
+  </div>
+
+  <div class="modal" id="giftModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Datos para regalos">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--image">
+      <img src="assets/regalos-datos-emilia.png" alt="Nombre María Emilia García Gallardo, alias emilia3305, Mercado Pago" width="942" height="1674">
+      <button class="modal__close" type="button" data-close-modal aria-label="Cerrar">×</button>
+      <button class="copy-alias" id="copyAlias" type="button">Copiar alias</button>
+    </div>
+  </div>
+
+  <div class="modal" id="musicModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="musicTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__panel modal__panel--form">
+      <button class="modal__close" type="button" data-close-modal aria-label="Cerrar">×</button>
+      <p class="modal__eyebrow">MÚSICA</p>
+      <h2 id="musicTitle">¿Qué canción no puede faltar?</h2>
+      <form id="songForm">
+        <label for="songName">Canción o artista</label>
+        <input id="songName" name="song" autocomplete="off" required placeholder="Escribí tu sugerencia">
+        <button type="submit">Buscar en Spotify</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+  <script src="invitation-personalization.js"></script>
+</body>
+</html>

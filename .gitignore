@@ -1,0 +1,6 @@
+.agents/
+tools/
+cloudflared.log
+.DS_Store
+Thumbs.db
+*.log
