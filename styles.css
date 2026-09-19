@@ -23,25 +23,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hotspot { position: absolute; z-index: 4; display: block; border: 0; background: transparent; cursor: pointer; border-radius: 999px; }
 .hotspot:focus-visible { outline: 2px solid #fff; outline-offset: 4px; background: rgba(255,255,255,.08); }
 
-.opening { position: fixed; inset: 0; z-index: 100; display: grid; place-content: center; justify-items: center; background: radial-gradient(circle at 50% 38%, #171717 0, #050505 36%, #000 70%); text-align: center; transition: opacity 1.2s ease, visibility 1.2s; }
-.opening::before, .opening::after { content: '✦'; position: absolute; color: #fff; filter: drop-shadow(0 0 7px #fff); animation: pulse 2s ease-in-out infinite; }
-.opening::before { top: 20%; left: 18%; font-size: 2rem; }
-.opening::after { right: 17%; bottom: 22%; font-size: 1.2rem; animation-delay: .7s; }
-.opening.is-open { opacity: 0; visibility: hidden; pointer-events: none; }
-.opening__eyebrow { position: relative; z-index: 2; letter-spacing: .55em; margin: 0 0 1rem; font-size: .8rem; color: #ccc; }
-.opening h1 { position: relative; z-index: 2; margin: 0 0 3rem; font-size: clamp(4rem, 19vw, 7rem); font-style: italic; font-weight: 400; text-shadow: 0 0 22px rgba(255,255,255,.32); }
-.opening__actions { position: relative; z-index: 3; display: grid; gap: .85rem; width: min(86vw, 320px); }
-.opening button { position: relative; z-index: 3; touch-action: manipulation; color: #fff; text-transform: uppercase; letter-spacing: .28em; background: transparent; border: 1px solid #aaa; border-radius: 999px; padding: 1.1rem 1.7rem 1.1rem 2rem; cursor: pointer; box-shadow: 0 0 18px rgba(255,255,255,.08); }
-.opening__actions button:last-child { color: #aaa; border-color: #666; }
-.opening button:hover { background: #fff; color: #000; }
-.opening__stars { position: absolute; inset: 0; pointer-events: none; opacity: .42; background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 41px 41px; mask-image: radial-gradient(circle, #000, transparent 75%); animation: drift 18s linear infinite; }
-.opening__art { position: absolute; inset: 0; width: min(100%, 540px); height: 100%; margin: auto; object-fit: cover; object-position: center top; }
-.opening__image-actions { position: absolute; z-index: 4; inset: 0; width: min(100%, 540px); margin: auto; pointer-events: none; }
-.opening .opening__hotspot { position: absolute; left: 18%; width: 64%; height: 6.1%; margin: 0; padding: 0; border: 0; border-radius: 999px; background: transparent; box-shadow: none; opacity: .001; pointer-events: auto; }
-.opening .opening__hotspot--music { top: 62.6%; }
-.opening .opening__hotspot--silent { top: 69.8%; }
-.opening .opening__hotspot:focus-visible { opacity: 1; outline: 2px solid #fff; outline-offset: 4px; background: rgba(255,255,255,.09); }
-
 .sound { position: fixed; z-index: 20; right: max(14px, env(safe-area-inset-right)); top: max(14px, env(safe-area-inset-top)); width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; color: #fff; background: rgba(0,0,0,.58); backdrop-filter: blur(8px); cursor: pointer; opacity: 0; transform: translateY(-10px); transition: .5s; }
 body.has-entered .sound { opacity: 1; transform: none; }
 .sound[aria-pressed='true'] { box-shadow: 0 0 18px rgba(255,255,255,.45); }

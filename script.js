@@ -244,6 +244,7 @@
     const audio = $('#invitationAudio');
     if (!button || !audio) return;
     audio.volume = .62;
+    let pausedByUser = false;
 
     function sync() {
       const playing = !audio.paused && !audio.ended;
@@ -252,28 +253,34 @@
     }
 
     async function play() {
+      if (pausedByUser) return;
       try { await audio.play(); }
       catch (_) { sync(); }
     }
 
     button.addEventListener('click', () => {
-      if (audio.paused) play();
-      else audio.pause();
+      if (audio.paused) {
+        pausedByUser = false;
+        play();
+      } else {
+        pausedByUser = true;
+        audio.pause();
+      }
     });
-    $('#openInvitation').addEventListener('click', play, { once: true });
     audio.addEventListener('play', sync);
     audio.addEventListener('pause', sync);
     audio.addEventListener('ended', sync);
     sync();
+    play();
+    const startAfterInteraction = (event) => {
+      if (button.contains(event.target) || pausedByUser) return;
+      play();
+    };
+    ['pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
+      window.addEventListener(eventName, startAfterInteraction, { once: true, passive: true });
+    });
   }
 
-  function enterInvitation() {
-    $('#opening').classList.add('is-open');
-    document.body.classList.remove('is-locked');
-    document.body.classList.add('has-entered');
-  }
-  $('#openInvitation').addEventListener('click', enterInvitation);
-  $('#openInvitationSilent').addEventListener('click', enterInvitation);
   $('#addCalendar').addEventListener('click', downloadCalendarEvent);
   document.addEventListener('click', (event) => {
     const openTrigger = event.target.closest('[data-open-modal]');

@@ -4,28 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="Invitación a los XV de Emilia — 21 de noviembre de 2026">
-  <title>XV Emilia</title>
+  <meta name="description" content="Con mucha alegría quiero invitarte a compartir una noche inolvidable: mis XV. Te espero, Emilia ✨">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bloomdate-emilia15.netlify.app/">
+  <meta property="og:title" content="Mis XV · Emilia">
+  <meta property="og:description" content="Con mucha alegría quiero invitarte a compartir una noche inolvidable: mis XV. Te espero, Emilia ✨">
+  <meta property="og:image" content="https://bloomdate-emilia15.netlify.app/assets/emilia-social-preview.png">
+  <meta property="og:image:secure_url" content="https://bloomdate-emilia15.netlify.app/assets/emilia-social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1732">
+  <meta property="og:image:height" content="908">
+  <meta property="og:image:alt" content="Mis XV de Emilia, una noche bajo las estrellas">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mis XV · Emilia">
+  <meta name="twitter:description" content="Con mucha alegría quiero invitarte a compartir una noche inolvidable: mis XV. Te espero, Emilia ✨">
+  <meta name="twitter:image" content="https://bloomdate-emilia15.netlify.app/assets/emilia-social-preview.png">
+  <link rel="canonical" href="https://bloomdate-emilia15.netlify.app/">
+  <title>Mis XV · Emilia</title>
   <link rel="preload" as="image" href="assets/emilia-portada.jpeg">
-  <link rel="preload" as="image" href="assets/intro-emilia.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="is-locked">
-  <div class="opening" id="opening" role="dialog" aria-label="Abrir invitación">
-    <img class="opening__art" src="assets/intro-emilia.png" alt="Emilia, Mis XV">
-    <div class="opening__image-actions">
-      <button class="opening__hotspot opening__hotspot--music" id="openInvitation" type="button"><span class="sr-only">Entrar con música</span></button>
-      <button class="opening__hotspot opening__hotspot--silent" id="openInvitationSilent" type="button"><span class="sr-only">Entrar sin música</span></button>
-    </div>
-  </div>
-
+<body class="has-entered">
   <button class="sound" id="soundToggle" type="button" aria-label="Activar música" aria-pressed="false">
     <span class="sound__icon" aria-hidden="true">♪</span>
   </button>
-  <audio id="invitationAudio" src="assets/musica-emilia.mp3" preload="metadata" loop></audio>
+  <audio id="invitationAudio" src="assets/musica-emilia.mp3" preload="auto" autoplay loop></audio>
 
   <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
 
